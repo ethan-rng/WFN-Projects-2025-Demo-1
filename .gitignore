@@ -1,1 +1,38 @@
 # Specifies which files Git should ignore
+
+# Python virtual environment
+venv/
+env/
+.env/
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# API Credentials
+credentials/
+*.json
+backend/credentials/
+**/credentials/
+**/*credentials*.json
+massive-anagram-448023-j1-cf85396d721c.json

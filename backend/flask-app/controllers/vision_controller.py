@@ -1,9 +1,14 @@
 from google.cloud import vision
+from google.oauth2 import service_account
 import logging
+import os
 
 class VisionController:
     def __init__(self):
-        self.client = vision.ImageAnnotatorClient()
+
+        credentials = service_account.Credentials.from_service_account_file(
+            'supaTopSecret.json')
+        self.client = vision.ImageAnnotatorClient(credentials=credentials)
 
     def allowed_file(self, filename):
         ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}

@@ -8,16 +8,31 @@ import HistoryScreen from './screens/history';
 import ProfileScreen from './screens/profile';
 import LoginScreen from './screens/login';
 import SignUpScreen from './screens/signup';
+import GeneratePage from './screens/generate';
 
 const Tab = createBottomTabNavigator();
+const HomeStack = createStackNavigator();
 const Stack = createStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="Generate" component={GeneratePage} 
+        options={{
+          headerShown: false,
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+}
 
 function MainTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen 
         name="Home" 
-        component={HomeScreen} 
+        component={HomeStackScreen} 
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image
@@ -25,6 +40,7 @@ function MainTabs() {
               style={{ width: size, height: size, tintColor: color }}
             />
           ),
+          headerShown: false,
         }}
       />
       <Tab.Screen 

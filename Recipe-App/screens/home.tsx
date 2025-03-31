@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
 
@@ -57,6 +59,10 @@ const HomeScreen = () => {
     }
   };
 
+  const handleGenerate = async () => {
+    navigation.navigate('Generate');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>AI Recipe Generator</Text>
@@ -68,6 +74,9 @@ const HomeScreen = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleCamera}>
           <Text style={styles.buttonText}>Camera</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleGenerate}>
+          <Text style={styles.buttonText}>temp</Text>
         </TouchableOpacity>
       </View>
     </View>

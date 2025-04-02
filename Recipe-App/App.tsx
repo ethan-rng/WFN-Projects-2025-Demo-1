@@ -8,7 +8,7 @@ import HistoryScreen from './screens/history';
 import ProfileScreen from './screens/profile';
 import LoginScreen from './screens/login';
 import SignUpScreen from './screens/signup';
-import GeneratePage from './screens/generate';
+import RecipePage from './screens/recipes';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -18,7 +18,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Generate" component={GeneratePage} 
+      <HomeStack.Screen name="Recipe" component={RecipePage} 
         options={{
           headerShown: false,
         }}

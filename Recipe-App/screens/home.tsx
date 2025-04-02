@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLayoutEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { Camera } from 'expo-camera';
@@ -8,6 +9,13 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => null, // This removes the back button
+      gestureEnabled: false, // Disable swipe back gesture
+    });
+  }, [navigation]);
 
   const askGalleryPermission = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -60,7 +68,7 @@ const HomeScreen = () => {
   };
 
   const handleGenerate = async () => {
-    navigation.navigate('Generate');
+    navigation.navigate('Recipe');
   }
 
   return (

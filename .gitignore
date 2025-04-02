@@ -39,5 +39,8 @@ Thumbs.db
 
 /credentials/ 
 
-TOP_SECRET_STUFF.pyvenv/
+TOP_SECRET_STUFF.py
+venv/
 node_modules/
+apitest.py
+test.py
